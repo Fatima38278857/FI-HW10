@@ -1,17 +1,19 @@
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
-        Consumer<String> consumer = new Consumer<String>() {
+        Function<Double, Long> function = new Function<Double, Long>() {
             @Override
-            public void accept (String s) {
-                System.out.println(s + ", приветствую");
+            public Long apply(Double dDouble) {
+                long l;
+                return l = Math.round(dDouble);
             }
         };
-        consumer.accept("Марем");
+        System.out.println(function.apply(25.890));
 
-        Consumer<String> consumer1 = x -> System.out.println(x + ", приветствую ");
-        consumer1.accept("Мадина");
+        Function<Double, Long> function1 = Math::round;
+        System.out.println(function1.apply(24.786));
     }
 }
 
