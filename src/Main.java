@@ -1,18 +1,17 @@
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
-      Predicate<Integer> predicate = new Predicate<Integer>() { // Реализация  функционального интерфейса
-          @Override
-          public boolean test(Integer integer) {
-              return integer > 0;
-          }
-      };
-        System.out.println(predicate.test(4));
+        Consumer<String> consumer = new Consumer<String>() {
+            @Override
+            public void accept (String s) {
+                System.out.println(s + ", приветствую");
+            }
+        };
+        consumer.accept("Марем");
 
-        Predicate<Integer> predicate1 = x -> x > 0; // Лябда вырожения
-        System.out.println(predicate1.test(-2));
-
+        Consumer<String> consumer1 = x -> System.out.println(x + ", приветствую ");
+        consumer1.accept("Мадина");
     }
 }
 
